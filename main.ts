@@ -99,6 +99,7 @@ class SampleSettingTab extends PluginSettingTab {
 				.setPlaceholder('Images')
 				.setValue(this.plugin.settings.mySetting)
 				.onChange(async (value) => {
+					// Replace all leading and trailing /
 					this.plugin.settings.mySetting = value.replace(/^\/+|\/+$/g, '');
 					await this.plugin.saveSettings();
 				}));
